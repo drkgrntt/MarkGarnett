@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class FromScatteredAshes extends Component {
   render() {
@@ -17,6 +18,13 @@ class FromScatteredAshes extends Component {
             >
               Buy on Amazon
             </a>
+            <Link
+              className="btn"
+              to="/Chapter1"
+              style={{ margin: '10px' }}
+            >
+              Read the First Chapter
+            </Link>
           </div>
           <div>
             <img 

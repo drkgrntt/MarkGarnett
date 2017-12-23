@@ -50,3 +50,13 @@ body {
 .FSA {
   float: right;
 }
+
+.chapter1 {
+  background-color: rgb(230,230,230);
+  background-color: rgba(230,230,230,0.7);
+  margin: 50px;
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 17px;
+  font-weight: bold;
+}
