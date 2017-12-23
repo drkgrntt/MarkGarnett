@@ -1,0 +1,52 @@
+body {
+  font-family: 'Raleway';
+  background-image: url("https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/10174870_10201870920076851_1653470025_n.jpg?oh=b7b8b640fc75638f85e7eea9628d3dd9&oe=5ABDA365");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+  margin: 80px;
+}
+
+.title {
+  letter-spacing: 10px;
+  text-align: center;
+}
+
+.linksDiv {
+  width: 100%;
+  text-align: center;
+}
+
+.links {
+  letter-spacing: 3px;
+  margin: 0 20px;
+  display: inline-block;
+  color: black;
+}
+
+.FSAbackground {
+  background: rgb(230,230,230);
+  background: rgba(230,230,230,0.7);
+  height: 500px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.FSAsnipit {
+  font-size: 20px;
+  width: 75%;
+  display: block;
+  font-style: italic;
+}
+
+.FSA {
+  float: right;
+}
