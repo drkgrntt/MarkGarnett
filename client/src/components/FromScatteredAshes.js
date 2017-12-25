@@ -8,7 +8,10 @@ class FromScatteredAshes extends Component {
         <div className="container flex-container">
           <div>
             <p className="FSAsnipit">
-              "As far as anyone in Missouri was concerned, I was praying too; putting my trust in God’s plan, and relying on him for hope and comfort. After all, that’s what good Christians do. And yet, there I was, facing a harsh ultimatum: accept God for the bully he was or fall headlong into a godless oblivion.” 
+              "As far as anyone in Missouri was concerned, I was praying too; putting my trust in God’s plan, and relying on him for hope and comfort. After all, that’s what good Christians do. 
+            </p>
+            <p className="FSAsnipit">
+              And yet, there I was, facing a harsh ultimatum: accept God for the bully he was or fall headlong into a godless oblivion.” 
             </p>
             <br />
             <br />
