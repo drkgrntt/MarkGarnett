@@ -4,7 +4,7 @@ import FromScatteredAshes from './FromScatteredAshes';
 
 class Landing extends Component {
   render() {
-    return(
+    return (
       <div>
         <Header />
         <FromScatteredAshes />

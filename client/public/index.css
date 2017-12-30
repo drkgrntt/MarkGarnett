@@ -69,3 +69,14 @@ body {
   display: block;
   margin: 0 auto;
 }
+
+.adminCard {
+  background: rgba(230,230,230,0.7);
+}
+
+.submit {
+  background: none;
+  border: none;
+  color: orange;
+  text-transform: uppercase;
+}

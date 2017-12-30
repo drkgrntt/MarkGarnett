@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class FromScatteredAshes extends Component {
   render() {
-    return(
+    return (
       <div className="FSAbackground">
         <div className="container flex-container">
           <div>

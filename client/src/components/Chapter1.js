@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Chapter1 extends Component {
   render() {
-    return(
+    return (
       <div className="chapter1">
         <Link to="/">
           Back

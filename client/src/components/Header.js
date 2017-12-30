@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Header extends Component {
   render() {
-    return(
+    return (
       <div className="header">
         <h1 className="title">MARK GARNETT</h1>
         <div className="linksDiv">
