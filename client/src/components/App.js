@@ -14,30 +14,43 @@ class App extends Component {
     this.props.fetchUser();
   }
 
-  renderAdmin() {
-    if (this.props.auth === true) {
-      return (
-        <div>Admin view enabled</div>
-      );
+  renderAdminContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return;
+      default:
+        return (
+          <div style={{ fontStyle: 'italic', margin: '8px' }}>
+            <span>Admin View Enabled</span>
+            <a 
+              style={{ cursor: 'pointer', color: 'black' }} 
+              className="right" 
+              href="/api/logout"
+            >
+              Logout
+            </a>
+          </div>
+        );
     }
-
-    return;
   }
 
   render() {
     return (
       <div>
-        <BrowserRouter>
+        <BrowserRouter 
+          onUpdate={() => window.scrollTo(0, 0)} 
+        >
           <div>
-            {this.renderAdmin}
+            {this.renderAdminContent()}
             <Route exact path="/" component={Landing} />
-              <div className="container">
-                <Route exact path="/admin" component={Admin} />
-                <Route exact path="/admin/register" component={AdminRegister} />
-                <Route exact path="/admin/login" component={AdminLogin} />
-                <Route exact path="/Chapter1" component={Chapter1} />
-              </div>
-            }
+            <div className="container">
+              <Route exact path="/admin" component={Admin} />
+              <Route exact path="/admin/register" component={AdminRegister} />
+              <Route exact path="/admin/login" component={AdminLogin} />
+              <Route exact path="/Chapter1" component={Chapter1} />
+            </div>
           </div>
         </BrowserRouter>
       </div>
@@ -45,4 +58,8 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+const mapStateToProps = ({ auth }) => {
+  return { auth };
+};
+
+export default connect(mapStateToProps, actions)(App);

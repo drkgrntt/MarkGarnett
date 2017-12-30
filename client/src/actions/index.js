@@ -10,15 +10,15 @@ export const fetchUser = () => async (dispatch) => {
 };
 
 export const createUserAsAdmin = (values, history) => async (dispatch) => {
-  const res = axios.post('/api/register', values);
+  const res = await axios.post('/api/register', values);
 
   history.push('/');
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
 export const loginUserAsAdmin = (values, history) => async (dispatch) => {
-  const res = axios.post('/api/login', values);
+  const res = await axios.post('/api/login', values);
 
-  history.push('/')
+  history.push('/');
   dispatch({ type: FETCH_USER , payload: res.data });
 };

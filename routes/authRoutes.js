@@ -35,7 +35,7 @@ module.exports = (app) => {
   // logout
   app.get('/api/logout', (req, res) => {
     req.logout();
-    res.send('Logged out');
+    res.redirect('/');
   });
 
   // make site aware of an admin user
