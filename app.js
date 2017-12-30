@@ -41,6 +41,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // BOOM GOES THE DYNAMITE
-app.listen(8081, process.env.IP, () => {
+app.listen(keys.port, process.env.IP, () => {
   console.log('Server is running');
 });
