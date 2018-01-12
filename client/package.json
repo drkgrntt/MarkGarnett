@@ -2,13 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": {
-    "/api/*": {
-      "target": "http://localhost:8081"
-    }
-  },
   "dependencies": {
     "axios": "^0.17.1",
+    "firebase": "^4.8.1",
     "materialize-css": "^0.100.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
