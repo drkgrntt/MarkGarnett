@@ -29,7 +29,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <a 
-              href="https://markgarnett.herokuapp.com" 
+              href="https://markgarnettauthor.firebaseapp.com" 
               target="_blank"
               className="btn"
               style={{ margin: '10px' }}
