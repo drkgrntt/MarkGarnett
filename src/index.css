@@ -80,3 +80,36 @@ body {
   color: orange;
   text-transform: uppercase;
 }
+
+.authFail {
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+  font-style: italic;
+}
+
+.card-panel {
+  background: rgb(235,235,235);
+  background: rgba(235,235,235,.4);
+}
+
+.card {
+  background: rgb(100,135,135);
+  background: rgba(100,135,135,0.5);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.card-title {
+  text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+input::placeholder {
+  color: black;
+}

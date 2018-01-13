@@ -1,12 +1,13 @@
 {
-  "name": "admin",
+  "name": "markgarnett",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.17.1",
     "firebase": "^4.8.1",
+    "lodash": "^4.17.4",
     "materialize-css": "^0.100.2",
     "react": "^16.2.0",
+    "react-ckeditor-component": "^1.0.7",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
@@ -16,9 +17,10 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "set PORT=3001 && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && firebase deploy"
   }
 }

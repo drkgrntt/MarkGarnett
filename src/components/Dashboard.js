@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions';
+import StoryForm from './StoryForm';
 
 class Dashboard extends Component {
   onLogoutClick() {
@@ -14,15 +15,17 @@ class Dashboard extends Component {
     switch (this.props.auth.user) {
       case null:
         return (
-          <h3>Please <Link to="/">login</Link> to see the dashboard.</h3>
+          <h3>Please <Link to="/admin/login">login</Link> to see the admin dashboard.</h3>
         );
       case false:
         return;
       default: 
         return (
           <div>
-            <a style={{ margin: '10px' }} onClick={this.onLogoutClick.bind(this)} className="btn red">Logout</a>
-            <h1>THIS IS THE DASHBOARD</h1>
+            <Link style={{ margin: '10px', float: 'right' }} className="btn" to="/">View Website</Link>
+            <a style={{ margin: '10px', float: 'right' }} onClick={this.onLogoutClick.bind(this)} className="btn red">Logout</a>
+            <h2>ADMIN DASHBOARD</h2>
+            <StoryForm />
           </div>
         );
     }

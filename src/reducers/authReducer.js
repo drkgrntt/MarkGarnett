@@ -16,7 +16,7 @@ export default (state = INITIAL_STATE, action) => {
     case LOGIN_USER_FAIL:
       return { ...state, error: 'Invalid credentials.' };
     case LOGOUT_USER:
-      return INITIAL_STATE;
+      return { ...state, ...INITIAL_STATE };
     default:
       return state;
   }
