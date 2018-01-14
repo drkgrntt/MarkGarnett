@@ -7,6 +7,7 @@ import * as actions from '../actions';
 import Landing from './Landing';
 import Chapter1 from './Chapter1';
 import Stories from './Stories';
+import ShowShortStory from './ShowShortStory';
 import AboutTheAuthor from './AboutTheAuthor';
 
 import LoginForm from './LoginForm';
@@ -40,6 +41,7 @@ class App extends Component {
             <div className="container">
               <Route exact path="/chapter1" component={Chapter1} />
               <Route exact path="/stories" component={Stories} />
+              <Route exact path="/stories/short/:id" component={ShowShortStory} />
               <Route exact path="/about" component={AboutTheAuthor} />
               {/* ADMIN ROUTES */}
               <Route exact path="/admin/login" component={LoginForm} />

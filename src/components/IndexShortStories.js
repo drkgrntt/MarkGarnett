@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { shortStoriesFetch } from '../actions';
 
-class ShortStories extends Component {
+class IndexShortStories extends Component {
   componentWillMount() {
     this.props.shortStoriesFetch();
   }
@@ -50,4 +50,4 @@ const mapStateToProps = ({ shortStories }) => {
   return { shortStories };
 };
 
-export default connect(mapStateToProps, { shortStoriesFetch })(ShortStories);
+export default connect(mapStateToProps, { shortStoriesFetch })(IndexShortStories);
