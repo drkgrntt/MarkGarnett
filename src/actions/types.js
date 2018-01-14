@@ -1,3 +1,4 @@
+export const CHECK_ADMIN_CODE = 'check_admin_code';
 export const REGISTER_USER = 'register_user';
 export const LOGIN_USER = 'login_user';
 export const LOGIN_USER_SUCCESS = 'login_user_success';

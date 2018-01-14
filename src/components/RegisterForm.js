@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { registerUser } from '../actions';
+import { checkAdminCode } from '../actions';
 
 class RegisterForm extends Component {
   renderField(field) {
@@ -18,9 +18,9 @@ class RegisterForm extends Component {
   }
 
   onSubmit(values) {
-    const { registerUser, history } = this.props;
+    const { checkAdminCode, history } = this.props;
 
-    registerUser(values, history);
+    checkAdminCode(values, history);
   }
 
   render() {
@@ -73,5 +73,5 @@ const mapStateToProps = ({ auth }) => {
 export default reduxForm({
   form: 'RegisterForm'
 })(
-  connect(mapStateToProps, { registerUser })(withRouter(RegisterForm))
+  connect(mapStateToProps, { checkAdminCode })(withRouter(RegisterForm))
 );

@@ -11,11 +11,6 @@ class ShortStories extends Component {
 
   renderStoryCard() {
     return _.map(this.props.shortStories, (story) => {
-
-      if (!this.props.shortStories) {
-        return <h2>Loading...</h2>;
-      }
-
       return (
         <li key={story.uid}>
           <div className="col s12 m6 l4">

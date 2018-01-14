@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import { 
+  CHECK_ADMIN_CODE,
   REGISTER_USER,
   LOGIN_USER,
   LOGIN_USER_SUCCESS,
@@ -13,17 +14,27 @@ import {
 } from './types';
 
 // AUTH ACTIONS
-export const registerUser = ({ email, password, adminCode }, history) => {
+export const checkAdminCode = ({ email, password, adminCode }, history) => {
+  return (dispatch) => {
+    dispatch({ type: CHECK_ADMIN_CODE });
+
+    firebase.database().ref('/env/adminCode').once('value', (snapshot) => {
+      if (snapshot.val() === adminCode) {
+        return dispatch(registerUser(email, password, history));
+      }
+
+      return loginUserFail(dispatch);
+    });
+  };
+};
+
+const registerUser = (email, password, history) => {
   return (dispatch) => {
     dispatch({ type: REGISTER_USER });
 
-    if (adminCode === 'password') {
-      return firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(user => loginUserSuccess(dispatch, history, user))
-        .catch((err) => loginUserFail(dispatch, err));      
-    }
-
-    return loginUserFail(dispatch);
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((user) => loginUserSuccess(dispatch, history, user))
+      .catch((err) => loginUserFail(dispatch, err));      
   };
 };
 
