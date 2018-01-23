@@ -93,12 +93,3 @@ export const shortStoriesFetch = () => {
       });
   };
 };
-
-export const shortStoryFetch = (uid) => {
-  return (dispatch) => {
-    firebase.database().ref(`/shortStories/${uid}`)
-      .on('value', (snapshot) => {
-        dispatch({ type: SHORT_STORY_FETCH_SUCCESS, payload: snapshot.val() });
-      });
-  };
-};

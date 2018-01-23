@@ -64,6 +64,7 @@ body {
 
 .chapter1 {
   padding: 20px;
+  padding-bottom: 50px;
   font-size: 17px;
   font-weight: bold;
 }

@@ -36,6 +36,10 @@ class IndexShortStories extends Component {
   }
 
   render() {
+    if (this.props.shortStories == false) {
+      return <h3>No stories yet!</h3>;
+    }
+
     return (
       <div>
         <h3>Short Stories</h3>
