@@ -10,7 +10,8 @@ import {
   CREATE_SHORT_STORY,
   EDIT_SHORT_STORY,
   DELETE_SHORT_STORY,
-  SHORT_STORIES_FETCH_SUCCESS
+  SHORT_STORIES_FETCH_SUCCESS,
+  SHORT_STORY_FETCH_SUCCESS
 } from './types';
 
 // AUTH ACTIONS
@@ -89,6 +90,15 @@ export const shortStoriesFetch = () => {
     firebase.database().ref('/shortStories')
       .on('value', (snapshot) => {
         dispatch({ type: SHORT_STORIES_FETCH_SUCCESS, payload: snapshot.val() });
+      });
+  };
+};
+
+export const shortStoryFetch = (uid) => {
+  return (dispatch) => {
+    firebase.database().ref(`/shortStories/${uid}`)
+      .on('value', (snapshot) => {
+        dispatch({ type: SHORT_STORY_FETCH_SUCCESS, payload: snapshot.val() });
       });
   };
 };

@@ -5,7 +5,7 @@ class Chapter1 extends Component {
   render() {
     return (
       <div>
-        <Link style={{ margin: '10px' }} className="btn" to="/">
+        <Link style={{ margin: '10px' }} className="btn indigo lighten-1" to="/">
           Back
         </Link>
         <div className="chapter1background">
@@ -117,7 +117,7 @@ class Chapter1 extends Component {
             >
               Buy on Amazon
             </a>
-            <Link to="/" className="btn" style={{ float: 'right' }}>
+            <Link to="/" className="btn indigo lighten-1" style={{ float: 'right' }}>
               Back
             </Link>
           </div>

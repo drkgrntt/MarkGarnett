@@ -16,7 +16,7 @@ class AboutTheAuthor extends Component {
                 <span>Coming soon.</span>
               </div>
               <div className="card-action">
-                <Link className="btn right" to="/">Back</Link>
+                <Link className="btn indigo lighten-1 right" to="/">Back</Link>
               </div>
             </div>
           </div>

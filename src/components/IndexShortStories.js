@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import renderHTML from 'react-render-html';
 import { shortStoriesFetch } from '../actions';
 
 class IndexShortStories extends Component {
@@ -20,10 +21,12 @@ class IndexShortStories extends Component {
                 <span className="card-title">{story.title}</span>
               </div>
               <div className="card-content">
-                <p className="bold">{story.content.substring(0, 70)}...</p>
+                <span style={{ fontWeight: 'bold' }}>
+                  {renderHTML(story.content.substring(0, 130))}...
+                </span>
               </div>
               <div className="card-action">
-                <Link to="#">Read More</Link>
+                <Link to={`/stories/short/${story.uid}`}>Read More</Link>
               </div>
             </div>
           </div>
@@ -46,7 +49,11 @@ class IndexShortStories extends Component {
   }
 }
 
-const mapStateToProps = ({ shortStories }) => {
+const mapStateToProps = (state) => {
+  const shortStories = _.map(state.shortStories, (val, uid) => {
+    return { ...val, uid };
+  });
+
   return { shortStories };
 };
 

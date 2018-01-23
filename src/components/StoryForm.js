@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import CKEditor from 'react-ckeditor-component';
 import { createShortStory } from '../actions';
+import TextEditor from './TextEditor';
 
 class StoryForm extends Component {
   renderTextField(field) {
@@ -18,12 +18,9 @@ class StoryForm extends Component {
     );
   }
 
-  renderEditor(field) {
-    return (
-      <CKEditor
-        
-      />
-    );
+  onChange(event, props) {
+    console.log(event.editor.getData());
+    console.log(props);
   }
 
   onSubmit(values) {
@@ -52,7 +49,7 @@ class StoryForm extends Component {
           <Field
             label="Story Content"
             name="content"
-            component={this.renderTextField}
+            component={TextEditor}
           />
           <button
             type="submit"

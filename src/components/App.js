@@ -36,19 +36,17 @@ class App extends Component {
         <BrowserRouter 
           onUpdate={() => window.scrollTo(0, 0)} 
         >
-          <div>
+          <div className="container">
             <Route exact path="/" component={Landing} />
-            <div className="container">
-              <Route exact path="/chapter1" component={Chapter1} />
-              <Route exact path="/stories" component={Stories} />
-              <Route exact path="/stories/short/:id" component={ShowShortStory} />
-              <Route exact path="/about" component={AboutTheAuthor} />
-              {/* ADMIN ROUTES */}
-              <Route exact path="/admin/login" component={LoginForm} />
-              <Route exact path="/admin/register" component={RegisterForm} />
-              <Route exact path="/admin/dashboard" component={Dashboard} />
-              <Route exact path="/admin/success" component={Success} />
-            </div>
+            <Route exact path="/chapter1" component={Chapter1} />
+            <Route exact path="/stories" component={Stories} />
+            <Route exact path="/stories/short/:uid" component={ShowShortStory} />
+            <Route exact path="/about" component={AboutTheAuthor} />
+            {/* ADMIN ROUTES */}
+            <Route exact path="/admin/login" component={LoginForm} />
+            <Route exact path="/admin/register" component={RegisterForm} />
+            <Route exact path="/admin/dashboard" component={Dashboard} />
+            <Route exact path="/admin/success" component={Success} />
           </div>
         </BrowserRouter>
       </div>
