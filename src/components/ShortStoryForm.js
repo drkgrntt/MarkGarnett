@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
-import { shortStoriesFetch, updateShortStory } from '../actions';
+import { withRouter } from 'react-router-dom';
+import { createShortStory } from '../actions';
 import TextEditor from './TextEditor';
 
-class UpdateShortStory extends Component {
-  componentDidMount() {
-    this.props.shortStoriesFetch();
-  }
-
+class ShortStoryForm extends Component {
   renderTextField(field) {
     return (
       <div className="input-field">
@@ -23,24 +19,17 @@ class UpdateShortStory extends Component {
   }
 
   onSubmit(values) {
-    const { updateShortStory, history } = this.props;
-    const { uid } = this.props.match.params;
+    const { createShortStory, history } = this.props;
 
-    updateShortStory(values, uid, history);
+    createShortStory(values, history);
   }
 
   render() {
-    if (this.props.auth.user === null) {
-      return (
-        <h3>Please <Link to="/admin/login">login</Link> to see the admin dashboard.</h3>
-      );
-    }
-
     const { handleSubmit } = this.props;
 
     return (
       <div className="card-panel">
-        <h4>Edit this story</h4>
+        <h4>Use this form to create a new short story!</h4>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
             label="Title"
@@ -64,26 +53,14 @@ class UpdateShortStory extends Component {
           >
             Submit
           </button>
-          <Link
-            to='/admin/dashboard'
-            style={{ margin: '0 5px' }}
-            className="btn red"
-          >
-            Cancel
-          </Link>
         </form>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ shortStories, auth }, ownProps) => {
-  return { auth, initialValues: shortStories[ownProps.match.params.uid] };
-};
-
-const UpdateShortStoryForm = reduxForm({
-  form: 'UpdateShortStoryForm',
-  enableReinitialize: true
-})(UpdateShortStory);
-
-export default connect(mapStateToProps, { shortStoriesFetch, updateShortStory })(withRouter(UpdateShortStoryForm));
+export default reduxForm({
+  form: 'ShortStoryForm'
+})(
+  connect(null, { createShortStory })(withRouter(ShortStoryForm))
+);

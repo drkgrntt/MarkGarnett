@@ -3,7 +3,9 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions';
 import AdminShortStoryList from './AdminShortStoryList';
-import StoryForm from './StoryForm';
+import ShortStoryForm from './ShortStoryForm';
+import AdminLongStoryList from './AdminLongStoryList';
+import LongStoryForm from './LongStoryForm';
 
 class Dashboard extends Component {
   onLogoutClick() {
@@ -25,7 +27,9 @@ class Dashboard extends Component {
         <a style={{ margin: '10px', float: 'right' }} onClick={this.onLogoutClick.bind(this)} className="btn red">Logout</a>
         <h2>Admin Dashboard</h2>
         <AdminShortStoryList />
-        <StoryForm />
+        <ShortStoryForm />
+        <AdminLongStoryList />
+        <LongStoryForm />
       </div>
     );
   }

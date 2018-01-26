@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { createShortStory } from '../actions';
+import { createLongStory } from '../actions';
 import TextEditor from './TextEditor';
 
-class StoryForm extends Component {
+class LongStoryForm extends Component {
   renderTextField(field) {
     return (
       <div className="input-field">
@@ -19,9 +19,9 @@ class StoryForm extends Component {
   }
 
   onSubmit(values) {
-    const { createShortStory, history } = this.props;
+    const { createLongStory, history } = this.props;
 
-    createShortStory(values, history);
+    createLongStory(values, history);
   }
 
   render() {
@@ -29,21 +29,26 @@ class StoryForm extends Component {
 
     return (
       <div className="card-panel">
-        <h4>Use this form to create a new short story!</h4>
+        <h4>Start a new long story!</h4>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
-            label="Title"
-            name="title"
+            label="Story Title"
+            name="storyTitle"
             component={this.renderTextField}
           />
           <Field
-            label="Image URL"
-            name="image"
+            label="First Chapter Title"
+            name="chapterTitle"
+            component={this.renderTextField}
+          />
+          <Field 
+            label="First Chapter Image URL"
+            name="chapterImage"
             component={this.renderTextField}
           />
           <Field
-            label="Story Content"
-            name="content"
+            label="First Chapter Content"
+            name="chapterContent"
             component={TextEditor}
           />
           <button
@@ -60,7 +65,7 @@ class StoryForm extends Component {
 }
 
 export default reduxForm({
-  form: 'StoryForm'
+  form: 'LongStoryForm'
 })(
-  connect(null, { createShortStory })(withRouter(StoryForm))
+  connect(null, { createLongStory })(withRouter(LongStoryForm))
 );

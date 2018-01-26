@@ -11,7 +11,11 @@ import {
   UPDATE_SHORT_STORY,
   DELETE_SHORT_STORY,
   SHORT_STORIES_FETCH_SUCCESS,
-  SHORT_STORY_FETCH_SUCCESS
+
+  APPEND_LONG_STORY,
+  UPDATE_LONG_STORY,
+  DELETE_LONG_STORY,
+  LONG_STORIES_FETCH_SUCCESS
 } from './types';
 
 // AUTH ACTIONS
@@ -112,6 +116,61 @@ export const deleteShortStory = (uid, history) => {
       .remove()
       .then(() => {
         dispatch({ type: DELETE_SHORT_STORY });
+      });
+  };
+};
+
+// LONG STORY ACTIONS
+export const createLongStory = ({ storyTitle, chapterTitle, chapterImage, chapterContent }, history) => {
+  return (dispatch) => {
+    firebase.database().ref('/longStories')
+      .push({ storyTitle })
+      .then((longStory) => {
+        const uid = longStory.path.pieces_[1];
+
+        dispatch(appendLongStory(uid, chapterTitle, chapterImage, chapterContent, history));
+      });
+  };
+};
+
+export const appendLongStory = (uid, chapterTitle, chapterImage, chapterContent, history) => {
+  return (dispatch) => {
+    history.push('/admin/success');
+    firebase.database().ref(`longStories/${uid}/chapters`)
+      .push({ chapterTitle, chapterImage, chapterContent })
+      .then(() => {
+        dispatch({ type: APPEND_LONG_STORY });
+      });
+  };
+};
+
+export const longStoriesFetch = () => {
+  return (dispatch) => {
+    firebase.database().ref('/longStories')
+      .on('value', (snapshot) => {
+        dispatch({ type: LONG_STORIES_FETCH_SUCCESS, payload: snapshot.val() });
+      });
+  };
+};
+
+export const updateLongStory = ({ title }, uid, history) => {
+  return (dispatch) => {
+    history.push('/admin/success');
+    firebase.database().ref(`/longStories/${uid}`)
+      .set({ title })
+      .then(() => {
+        dispatch({ type: UPDATE_LONG_STORY });
+      });
+  };
+};
+
+export const deleteLongStory = (uid, history) => {
+  return (dispatch) => {
+    history.push('/admin/success');
+    firebase.database().ref(`/longStories/${uid}`)
+      .remove()
+      .then(() => {
+        dispatch({ type: DELETE_LONG_STORY });
       });
   };
 };
