@@ -115,7 +115,7 @@ class Chapter1 extends Component {
               className="btn amber darken-1"
               href="https://www.amazon.com/Scattered-Ashes-Mark-Garnett/dp/1978355076/ref=sr_1_1?ie=UTF8&qid=1513826729&sr=8-1&keywords=from+scattered+ashes"
             >
-              Buy on Amazon
+              On Amazon
             </a>
             <Link to="/" className="btn indigo lighten-1" style={{ float: 'right' }}>
               Back

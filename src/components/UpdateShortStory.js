@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { createShortStory } from '../actions';
+import { withRouter, Link } from 'react-router-dom';
+import { shortStoriesFetch, updateShortStory } from '../actions';
 import TextEditor from './TextEditor';
 
-class StoryForm extends Component {
+class UpdateShortStory extends Component {
+  componentDidMount() {
+    this.props.shortStoriesFetch();
+  }
+
   renderTextField(field) {
     return (
       <div className="input-field">
@@ -19,9 +23,10 @@ class StoryForm extends Component {
   }
 
   onSubmit(values) {
-    const { createShortStory, history } = this.props;
+    const { updateShortStory, history } = this.props;
+    const { uid } = this.props.match.params;
 
-    createShortStory(values, history);
+    updateShortStory(values, uid, history);
   }
 
   render() {
@@ -29,7 +34,7 @@ class StoryForm extends Component {
 
     return (
       <div className="card-panel">
-        <h4>Use this form to create a new short story!</h4>
+        <h4>Edit this story</h4>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
             label="Title"
@@ -53,14 +58,26 @@ class StoryForm extends Component {
           >
             Submit
           </button>
+          <Link
+            to='/admin/dashboard'
+            style={{ margin: '0 5px' }}
+            className="btn red"
+          >
+            Cancel
+          </Link>
         </form>
       </div>
     );
   }
 }
 
-export default reduxForm({
-  form: 'StoryForm'
-})(
-  connect(null, { createShortStory })(withRouter(StoryForm))
-);
+const mapStateToProps = ({ shortStories }, ownProps) => {
+  return { initialValues: shortStories[ownProps.match.params.uid] };
+};
+
+const UpdateShortStoryForm = reduxForm({
+  form: 'UpdateShortStoryForm',
+  enableReinitialize: true
+})(UpdateShortStory);
+
+export default connect(mapStateToProps, { shortStoriesFetch, updateShortStory })(withRouter(UpdateShortStoryForm));

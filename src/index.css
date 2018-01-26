@@ -33,7 +33,6 @@ body {
 
 .FSAsnipit {
   font-size: 18px;
-  width: 75%;
   display: block;
   font-style: italic;
   text-align: center;
@@ -49,7 +48,7 @@ body {
 
 .chapter1background {
   background-color: rgb(230,230,230);
-  background-color: rgba(230,230,230,0.7);
+  background-color: rgba(230,230,230,0.8);
   border-radius: 10px;
   margin-bottom: 50px;
   padding: 10px;
@@ -66,7 +65,6 @@ body {
   padding: 20px;
   padding-bottom: 50px;
   font-size: 17px;
-  font-weight: bold;
 }
 
 .adminCard {
@@ -89,12 +87,12 @@ body {
 
 .card-panel {
   background: rgb(235,235,235);
-  background: rgba(235,235,235,.4);
+  background: rgba(235,235,235,.5);
 }
 
 .card.hoverable {
-  background: rgb(100,135,135);
-  background: rgba(100,135,135,0.5);
+  background: rgb(155,175,200);
+  background: rgba(155,175,200,0.7);
 }
 
 .bold {

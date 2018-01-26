@@ -14,6 +14,7 @@ import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import Dashboard from './Dashboard';
 import Success from './Success'
+import UpdateShortStory from './UpdateShortStory';
 
 class App extends Component {
   componentWillMount() {
@@ -47,6 +48,7 @@ class App extends Component {
             <Route exact path="/admin/register" component={RegisterForm} />
             <Route exact path="/admin/dashboard" component={Dashboard} />
             <Route exact path="/admin/success" component={Success} />
+            <Route exact path="/admin/stories/short/:uid/update" component={UpdateShortStory} />
           </div>
         </BrowserRouter>
       </div>

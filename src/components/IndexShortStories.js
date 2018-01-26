@@ -11,6 +11,14 @@ class IndexShortStories extends Component {
   }
 
   renderStoryCard() {
+    if (this.props.shortStories == false) {
+      return (
+        <div className="progress">
+          <div className="indeterminate"></div>
+        </div>
+      );
+    }
+
     return _.map(this.props.shortStories, (story) => {
       return (
         <li key={story.uid}>
@@ -21,7 +29,7 @@ class IndexShortStories extends Component {
                 <span className="card-title">{story.title}</span>
               </div>
               <div className="card-content">
-                <span style={{ fontWeight: 'bold' }}>
+                <span>
                   {renderHTML(story.content.substring(0, 130))}...
                 </span>
               </div>
@@ -36,10 +44,6 @@ class IndexShortStories extends Component {
   }
 
   render() {
-    if (this.props.shortStories == false) {
-      return <h3>No stories yet!</h3>;
-    }
-
     return (
       <div>
         <h3>Short Stories</h3>

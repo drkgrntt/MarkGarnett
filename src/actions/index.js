@@ -8,7 +8,7 @@ import {
   LOGOUT_USER,
 
   CREATE_SHORT_STORY,
-  EDIT_SHORT_STORY,
+  UPDATE_SHORT_STORY,
   DELETE_SHORT_STORY,
   SHORT_STORIES_FETCH_SUCCESS,
   SHORT_STORY_FETCH_SUCCESS
@@ -90,6 +90,28 @@ export const shortStoriesFetch = () => {
     firebase.database().ref('/shortStories')
       .on('value', (snapshot) => {
         dispatch({ type: SHORT_STORIES_FETCH_SUCCESS, payload: snapshot.val() });
+      });
+  };
+};
+
+export const updateShortStory = ({ title, image, content }, uid, history) => {
+  return (dispatch) => {
+    history.push('/admin/success');
+    firebase.database().ref(`/shortStories/${uid}`)
+      .set({ title, image, content })
+      .then(() => {
+        dispatch({ type: UPDATE_SHORT_STORY });
+      });
+  };
+};
+
+export const deleteShortStory = (uid, history) => {
+  return (dispatch) => {
+    history.push('/admin/success');
+    firebase.database().ref(`/shortStories/${uid}`)
+      .remove()
+      .then(() => {
+        dispatch({ type: DELETE_SHORT_STORY });
       });
   };
 };

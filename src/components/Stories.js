@@ -6,7 +6,13 @@ class Stories extends Component {
   render() {
     return (
       <div>
-        <Link style={{ margin: '10px 0' }} to="/" className="btn indigo lighten-1">Home</Link>
+        <Link 
+          style={{ marginTop: '10px' }} 
+          to="/" 
+          className="btn indigo lighten-1"
+        >
+          Home
+        </Link>
         <IndexShortStories />
       </div>
     );

@@ -7,7 +7,7 @@ class FromScatteredAshes extends Component {
       <div className="FSAbackground">
         <div className="container">
           <div className="row">
-            <div className="col m6 s12">
+            <div className="col m5 s12">
               <p className="FSAsnipit">
                 "As far as anyone in Missouri was concerned, I was praying too; putting my trust in God’s plan, and relying on him for hope and comfort. After all, that’s what good Christians do. 
               </p>
@@ -16,13 +16,14 @@ class FromScatteredAshes extends Component {
               </p>
               <br />
               <Link
-                className="btn indigo lighten-1 center"
+                className="btn indigo lighten-1"
                 to="/Chapter1"
-                style={{ margin: '30px' }}
+                style={{ display: 'block', marginBottom: '20px' }}
               >
                 Chapter One
               </Link>
             </div>
+            <div className="col m1"></div>
             <div className="col m6 s12">
               <img 
                 className="FSA" 

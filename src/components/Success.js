@@ -10,7 +10,7 @@ class Success extends Component {
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
               <span className="card-title">Success!</span>
-              <p>You have successfully posted a story! Where would you like to go now?</p>
+              <p>Your changes have been successfully saved! Where would you like to go now?</p>
             </div>
             <div className="card-action">
               <Link to="/admin/dashboard">Dashboard</Link>
