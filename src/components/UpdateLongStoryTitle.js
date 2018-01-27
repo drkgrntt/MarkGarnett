@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
-import { shortStoriesFetch, updateShortStory } from '../actions';
-import TextEditor from './TextEditor';
+import { longStoriesFetch, updateLongStory } from '../actions';
 
-class UpdateShortStory extends Component {
+class UpdateLongStoryTitle extends Component {
   componentDidMount() {
-    this.props.shortStoriesFetch();
+    this.props.longStoriesFetch();
   }
 
   renderTextField(field) {
@@ -22,11 +21,11 @@ class UpdateShortStory extends Component {
     );
   }
 
-  onSubmit(values) {
-    const { updateShortStory, history } = this.props;
+  onSubmit(value) {
+    const { updateLongStory, history } = this.props;
     const { uid } = this.props.match.params;
 
-    updateShortStory(values, uid, history);
+    updateLongStory(value, uid, history);
   }
 
   render() {
@@ -40,22 +39,12 @@ class UpdateShortStory extends Component {
 
     return (
       <div className="card-panel">
-        <h4>Edit this story</h4>
+      <h4>Edit this story title</h4>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
-            label="Title"
-            name="title"
+            label="Story Title"
+            name="storyTitle"
             component={this.renderTextField}
-          />
-          <Field
-            label="Image URL"
-            name="image"
-            component={this.renderTextField}
-          />
-          <Field
-            label="Story Content"
-            name="content"
-            component={TextEditor}
           />
           <button
             type="submit"
@@ -77,13 +66,13 @@ class UpdateShortStory extends Component {
   }
 }
 
-const mapStateToProps = ({ shortStories, auth }, ownProps) => {
-  return { auth, initialValues: shortStories[ownProps.match.params.uid] };
+const mapStateToProps = ({ longStories, auth }, ownProps) => {
+  return { auth, initialValues: longStories[ownProps.match.params.uid] };
 };
 
-const UpdateShortStoryForm = reduxForm({
-  form: 'UpdateShortStoryForm',
+const UpdateLongStoryTitleForm = reduxForm({
+  form: 'UpdateLongStoryTitleForm',
   enableReinitialize: true
-})(UpdateShortStory);
+})(UpdateLongStoryTitle);
 
-export default connect(mapStateToProps, { shortStoriesFetch, updateShortStory })(withRouter(UpdateShortStoryForm));
+export default connect(mapStateToProps, { longStoriesFetch, updateLongStory })(withRouter(UpdateLongStoryTitleForm));

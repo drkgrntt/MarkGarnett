@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import renderHTML from 'react-render-html';
 import { deleteLongStory, longStoriesFetch } from '../actions';
+import AdminChapterList from './AdminChapterList';
+import UpdateLongStoryTitle from './UpdateLongStoryTitle';
 
 class AdminLongStoryList extends Component {
   componentWillMount() {
@@ -36,17 +37,17 @@ class AdminLongStoryList extends Component {
               onClick={this.onDeleteClick.bind(this, story)}
               className="btn right red"
             >
-              Delete this story
+              Delete story
             </a>
             <Link 
               className="btn right orange" 
               to={`/admin/stories/long/${story.uid}/update`}
               style={{ marginRight: '15px' }}
             >
-              Edit this story
+              Edit story title
             </Link>
-
           </div>
+          <AdminChapterList uid={story.uid} />
         </li>
       );
     });

@@ -12,10 +12,14 @@ import {
   DELETE_SHORT_STORY,
   SHORT_STORIES_FETCH_SUCCESS,
 
-  APPEND_LONG_STORY,
+  CREATE_CHAPTER,
   UPDATE_LONG_STORY,
   DELETE_LONG_STORY,
-  LONG_STORIES_FETCH_SUCCESS
+  LONG_STORIES_FETCH_SUCCESS,
+
+  UPDATE_CHAPTER,
+  DELETE_CHAPTER,
+  CHAPTERS_FETCH_SUCCESS
 } from './types';
 
 // AUTH ACTIONS
@@ -102,7 +106,7 @@ export const updateShortStory = ({ title, image, content }, uid, history) => {
   return (dispatch) => {
     history.push('/admin/success');
     firebase.database().ref(`/shortStories/${uid}`)
-      .set({ title, image, content })
+      .update({ title, image, content })
       .then(() => {
         dispatch({ type: UPDATE_SHORT_STORY });
       });
@@ -128,18 +132,7 @@ export const createLongStory = ({ storyTitle, chapterTitle, chapterImage, chapte
       .then((longStory) => {
         const uid = longStory.path.pieces_[1];
 
-        dispatch(appendLongStory(uid, chapterTitle, chapterImage, chapterContent, history));
-      });
-  };
-};
-
-export const appendLongStory = (uid, chapterTitle, chapterImage, chapterContent, history) => {
-  return (dispatch) => {
-    history.push('/admin/success');
-    firebase.database().ref(`longStories/${uid}/chapters`)
-      .push({ chapterTitle, chapterImage, chapterContent })
-      .then(() => {
-        dispatch({ type: APPEND_LONG_STORY });
+        dispatch(createChapter(uid, chapterTitle, chapterImage, chapterContent, history));
       });
   };
 };
@@ -153,11 +146,11 @@ export const longStoriesFetch = () => {
   };
 };
 
-export const updateLongStory = ({ title }, uid, history) => {
+export const updateLongStory = ({ storyTitle }, uid, history) => {
   return (dispatch) => {
     history.push('/admin/success');
     firebase.database().ref(`/longStories/${uid}`)
-      .set({ title })
+      .update({ storyTitle })
       .then(() => {
         dispatch({ type: UPDATE_LONG_STORY });
       });
@@ -171,6 +164,49 @@ export const deleteLongStory = (uid, history) => {
       .remove()
       .then(() => {
         dispatch({ type: DELETE_LONG_STORY });
+      });
+  };
+};
+
+// CHAPTER ACTIONS
+export const createChapter = (uid, chapterTitle, chapterImage, chapterContent, history) => {
+  return (dispatch) => {
+    history.push('/admin/success');
+    firebase.database().ref(`longStories/${uid}/chapters`)
+      .push({ chapterTitle, chapterImage, chapterContent })
+      .then(() => {
+        dispatch({ type: CREATE_CHAPTER });
+      });
+  };
+};
+
+export const updateChapter = (uid, chapter_uid, { chapterTitle, chapterImage, chapterContent }, history) => {
+  return (dispatch) => {
+    history.push('/admin/success');
+    firebase.database().ref(`/longStories/${uid}/chapter/${chapter_uid}`)
+      .update({ chapterTitle, chapterImage, chapterContent })
+      .then(() => {
+        dispatch({ type: UPDATE_CHAPTER });
+      });
+  };
+};
+
+export const deleteChapter = (uid, chapter_uid, history) => {
+  return (dispatch) => {
+    history.push('/admin/success');
+    firebase.database().ref(`/longStories/${uid}/chapters/${chapter_uid}`)
+      .remove()
+      .then(() => {
+        dispatch({ type: DELETE_CHAPTER });
+      });
+  };
+};
+
+export const chaptersFetch = (uid) => {
+  return (dispatch) => {
+    firebase.database().ref(`/longStories/${uid}/chapters`)
+      .on('value', (snapshot) => {
+        dispatch({ type: CHAPTERS_FETCH_SUCCESS, payload: snapshot.val() });
       });
   };
 };

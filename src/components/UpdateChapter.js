@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
-import { shortStoriesFetch, updateShortStory } from '../actions';
+import { chaptersFetch, updateChapter } from '../actions';
 import TextEditor from './TextEditor';
 
-class UpdateShortStory extends Component {
+class UpdateChapter extends Component {
   componentDidMount() {
-    this.props.shortStoriesFetch();
+    const { uid } = this.props.match.params;
+
+    this.props.chaptersFetch(uid);
   }
 
   renderTextField(field) {
@@ -23,10 +25,10 @@ class UpdateShortStory extends Component {
   }
 
   onSubmit(values) {
-    const { updateShortStory, history } = this.props;
-    const { uid } = this.props.match.params;
+    const { updateChapter, history } = this.props;
+    const { uid, chapter_uid } = this.props.match.params;
 
-    updateShortStory(values, uid, history);
+    updateChapter(uid, chapter_uid, values, history);
   }
 
   render() {
@@ -40,21 +42,21 @@ class UpdateShortStory extends Component {
 
     return (
       <div className="card-panel">
-        <h4>Edit this story</h4>
+        <h4>Edit this chapter</h4>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
-            label="Title"
-            name="title"
+            label="Chapter Title"
+            name="chapterTitle"
             component={this.renderTextField}
           />
           <Field
-            label="Image URL"
-            name="image"
+            label="Chapter Image URL"
+            name="chapterImage"
             component={this.renderTextField}
           />
           <Field
-            label="Story Content"
-            name="content"
+            label="Chapter Content"
+            name="chapterContent"
             component={TextEditor}
           />
           <button
@@ -77,13 +79,13 @@ class UpdateShortStory extends Component {
   }
 }
 
-const mapStateToProps = ({ shortStories, auth }, ownProps) => {
-  return { auth, initialValues: shortStories[ownProps.match.params.uid] };
+const mapStateToProps = ({ chapters, auth }, ownProps) => {
+  return { auth, initialValues: chapters[ownProps.match.params.chapter_uid] };
 };
 
-const UpdateShortStoryForm = reduxForm({
-  form: 'UpdateShortStoryForm',
+const UpdateChapterForm = reduxForm({
+  form: 'UpdateChapterForm',
   enableReinitialize: true
-})(UpdateShortStory);
+})(UpdateChapter);
 
-export default connect(mapStateToProps, { shortStoriesFetch, updateShortStory })(withRouter(UpdateShortStoryForm));
+export default connect(mapStateToProps, { chaptersFetch, updateChapter })(withRouter(UpdateChapterForm));
