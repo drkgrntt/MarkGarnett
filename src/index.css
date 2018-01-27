@@ -116,3 +116,18 @@ input::placeholder {
   background: rgba(230,230,230,0.7);
   border-radius: 5px;
 }
+
+.chapter {
+  margin-right: 50px;
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+}
+
+.storyImage {
+  border-radius: 6px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,.5);
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}

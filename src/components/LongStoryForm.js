@@ -37,6 +37,11 @@ class LongStoryForm extends Component {
             component={this.renderTextField}
           />
           <Field
+            label="Story Image URL"
+            name="storyImage"
+            component={this.renderTextField}
+          />
+          <Field
             label="First Chapter Title"
             name="chapterTitle"
             component={this.renderTextField}

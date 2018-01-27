@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteLongStory, longStoriesFetch } from '../actions';
 import AdminChapterList from './AdminChapterList';
-import UpdateLongStoryTitle from './UpdateLongStoryTitle';
 
 class AdminLongStoryList extends Component {
   componentWillMount() {
@@ -44,7 +43,7 @@ class AdminLongStoryList extends Component {
               to={`/admin/stories/long/${story.uid}/update`}
               style={{ marginRight: '15px' }}
             >
-              Edit story title
+              Edit story
             </Link>
           </div>
           <AdminChapterList uid={story.uid} />

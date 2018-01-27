@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import IndexShortStories from './IndexShortStories';
+import IndexLongStories from './IndexLongStories';
 
 class Stories extends Component {
   render() {
@@ -13,7 +14,10 @@ class Stories extends Component {
         >
           Home
         </Link>
-        <IndexShortStories />
+        <div className="card-panel">
+          <IndexShortStories />
+          <IndexLongStories />
+        </div>
       </div>
     );
   }

@@ -125,10 +125,10 @@ export const deleteShortStory = (uid, history) => {
 };
 
 // LONG STORY ACTIONS
-export const createLongStory = ({ storyTitle, chapterTitle, chapterImage, chapterContent }, history) => {
+export const createLongStory = ({ storyTitle, storyImage, chapterTitle, chapterImage, chapterContent }, history) => {
   return (dispatch) => {
     firebase.database().ref('/longStories')
-      .push({ storyTitle })
+      .push({ storyTitle, storyImage })
       .then((longStory) => {
         const uid = longStory.path.pieces_[1];
 
@@ -146,11 +146,11 @@ export const longStoriesFetch = () => {
   };
 };
 
-export const updateLongStory = ({ storyTitle }, uid, history) => {
+export const updateLongStory = ({ storyTitle, storyImage }, uid, history) => {
   return (dispatch) => {
     history.push('/admin/success');
     firebase.database().ref(`/longStories/${uid}`)
-      .update({ storyTitle })
+      .update({ storyTitle, storyImage })
       .then(() => {
         dispatch({ type: UPDATE_LONG_STORY });
       });

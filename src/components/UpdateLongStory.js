@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 import { longStoriesFetch, updateLongStory } from '../actions';
 
-class UpdateLongStoryTitle extends Component {
+class UpdateLongStory extends Component {
   componentDidMount() {
     this.props.longStoriesFetch();
   }
@@ -21,11 +21,11 @@ class UpdateLongStoryTitle extends Component {
     );
   }
 
-  onSubmit(value) {
+  onSubmit(values) {
     const { updateLongStory, history } = this.props;
     const { uid } = this.props.match.params;
 
-    updateLongStory(value, uid, history);
+    updateLongStory(values, uid, history);
   }
 
   render() {
@@ -44,6 +44,11 @@ class UpdateLongStoryTitle extends Component {
           <Field
             label="Story Title"
             name="storyTitle"
+            component={this.renderTextField}
+          />
+          <Field
+            label="Story Image URL"
+            name="storyImage"
             component={this.renderTextField}
           />
           <button
@@ -70,9 +75,9 @@ const mapStateToProps = ({ longStories, auth }, ownProps) => {
   return { auth, initialValues: longStories[ownProps.match.params.uid] };
 };
 
-const UpdateLongStoryTitleForm = reduxForm({
-  form: 'UpdateLongStoryTitleForm',
+const UpdateLongStoryForm = reduxForm({
+  form: 'UpdateLongStoryForm',
   enableReinitialize: true
-})(UpdateLongStoryTitle);
+})(UpdateLongStory);
 
-export default connect(mapStateToProps, { longStoriesFetch, updateLongStory })(withRouter(UpdateLongStoryTitleForm));
+export default connect(mapStateToProps, { longStoriesFetch, updateLongStory })(withRouter(UpdateLongStoryForm));

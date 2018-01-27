@@ -25,6 +25,7 @@ class ShowShortStory extends Component {
           Back
         </Link>
         <div className="chapter1background">
+          <h3>{story.title}</h3>
           <img 
             className="chapter1banner"
             width="100%"
@@ -32,7 +33,6 @@ class ShowShortStory extends Component {
             src={story.image} 
           />
           <div className="chapter1">
-            <h3>{story.title}</h3>
             {renderHTML(story.content)}
             <Link to="/stories" className="btn indigo lighten-1" style={{ float: 'right' }}>
               Back

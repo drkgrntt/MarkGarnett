@@ -46,8 +46,9 @@ class IndexShortStories extends Component {
   render() {
     return (
       <div>
-        <h3>Short Stories</h3>
-        <div className="card-panel row">
+        <div className="row">
+          <h4>Short Stories</h4>
+          <hr />
           <ul>
             {this.renderStoryCard()}
           </ul>
