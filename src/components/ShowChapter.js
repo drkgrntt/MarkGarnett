@@ -9,6 +9,7 @@ class ShowChapter extends Component {
     const { chaptersFetch } = this.props;
     const { uid } = this.props.match.params;
 
+    window.scrollTo(0,0);
     chaptersFetch(uid);
   }
   render() {

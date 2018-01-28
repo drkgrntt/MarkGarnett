@@ -3,6 +3,10 @@ import Header from './Header';
 import FromScatteredAshes from './FromScatteredAshes';
 
 class Landing extends Component {
+  componentDidMount() {
+    window.scrollTo(0,0);
+  }
+  
   render() {
     return (
       <div>

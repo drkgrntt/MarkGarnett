@@ -4,6 +4,10 @@ import IndexShortStories from './IndexShortStories';
 import IndexLongStories from './IndexLongStories';
 
 class Stories extends Component {
+  componentDidMount() {
+    window.scrollTo(0,0);
+  }
+  
   render() {
     return (
       <div>
