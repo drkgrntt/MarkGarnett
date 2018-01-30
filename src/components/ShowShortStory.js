@@ -34,6 +34,10 @@ class ShowShortStory extends Component {
             src={story.image} 
           />
           <div className="chapter1">
+            <blockquote><i>
+              <p>Forward:</p>
+              {story.forward}
+            </i></blockquote>
             {renderHTML(story.content)}
             <Link to="/stories" className="btn indigo lighten-1" style={{ float: 'right' }}>
               Back

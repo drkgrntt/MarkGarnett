@@ -82,11 +82,11 @@ export const logoutUser = (history) => {
 };
 
 // SHORT STORY ACTIONS
-export const createShortStory = ({ title, image, content}, history) => {
+export const createShortStory = ({ title, forward, image, content}, history) => {
   return (dispatch) => {
     history.push('/admin/success');
     firebase.database().ref('/shortStories')
-      .push({ title, image, content })
+      .push({ title, forward, image, content })
       .then(() => {
         dispatch({ type: CREATE_SHORT_STORY });
       });
@@ -102,11 +102,11 @@ export const shortStoriesFetch = () => {
   };
 };
 
-export const updateShortStory = ({ title, image, content }, uid, history) => {
+export const updateShortStory = ({ title, forward, image, content }, uid, history) => {
   return (dispatch) => {
     history.push('/admin/success');
     firebase.database().ref(`/shortStories/${uid}`)
-      .update({ title, image, content })
+      .update({ title, forward, image, content })
       .then(() => {
         dispatch({ type: UPDATE_SHORT_STORY });
       });

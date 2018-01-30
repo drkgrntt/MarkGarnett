@@ -42,6 +42,11 @@ class ShortStoryForm extends Component {
             component={this.renderTextField}
           />
           <Field
+            label="Forward"
+            name="forward"
+            component={this.renderTextField}
+          />
+          <Field
             label="Story Content"
             name="content"
             component={TextEditor}
