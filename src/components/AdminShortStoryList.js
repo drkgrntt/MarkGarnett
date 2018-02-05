@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { deleteShortStory, shortStoriesFetch } from '../actions';
+import { resetFeature, deleteShortStory, shortStoriesFetch } from '../actions';
 
 class AdminShortStoryList extends Component {
   componentWillMount() {
@@ -14,6 +14,12 @@ class AdminShortStoryList extends Component {
     const { uid } = story;
 
     deleteShortStory(uid, history);
+  }
+
+  onFeatureClick(story) {
+    const { shortStories, resetFeature, history } = this.props;
+
+    resetFeature(shortStories, story, history);
   }
 
   renderStoryCard() {
@@ -35,16 +41,22 @@ class AdminShortStoryList extends Component {
               onClick={this.onDeleteClick.bind(this, story)}
               className="btn right red"
             >
-              Delete story
+              Delete
             </a>
             <Link 
               className="btn right orange" 
               to={`/admin/stories/short/${story.uid}/update`}
               style={{ marginRight: '15px' }}
             >
-              Edit story
+              Edit
             </Link>
-
+            <a
+              onClick={this.onFeatureClick.bind(this, story)}
+              className="btn right green darken-4"
+              style={{ marginRight: '15px' }}
+            >
+              Feature
+            </a>
           </div>
         </li>
       );
@@ -73,4 +85,4 @@ const mapStateToProps = (state) => {
   return { shortStories };
 };
 
-export default connect(mapStateToProps, { deleteShortStory, shortStoriesFetch })(withRouter(AdminShortStoryList));
+export default connect(mapStateToProps, { resetFeature, deleteShortStory, shortStoriesFetch })(withRouter(AdminShortStoryList));

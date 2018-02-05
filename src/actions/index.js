@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import _ from 'lodash';
 import { 
   CHECK_ADMIN_CODE,
   REGISTER_USER,
@@ -11,6 +12,8 @@ import {
   UPDATE_SHORT_STORY,
   DELETE_SHORT_STORY,
   SHORT_STORIES_FETCH_SUCCESS,
+  RESET_FEATURE,
+  MAKE_FEATURE,
 
   CREATE_CHAPTER,
   UPDATE_LONG_STORY,
@@ -86,7 +89,7 @@ export const createShortStory = ({ title, forward, image, content}, history) => 
   return (dispatch) => {
     history.push('/admin/success');
     firebase.database().ref('/shortStories')
-      .push({ title, forward, image, content })
+      .push({ title, forward, image, content, isFeature: false })
       .then(() => {
         dispatch({ type: CREATE_SHORT_STORY });
       });
@@ -98,6 +101,31 @@ export const shortStoriesFetch = () => {
     firebase.database().ref('/shortStories')
       .on('value', (snapshot) => {
         dispatch({ type: SHORT_STORIES_FETCH_SUCCESS, payload: snapshot.val() });
+      });
+  };
+};
+
+export const resetFeature = (shortStories, story, history) => {
+  return (dispatch) => {
+    _.map(shortStories, (foundStory) => {
+      if (foundStory.isFeature) {
+        firebase.database().ref(`/shortStories/${foundStory.uid}`)
+          .update({ isFeature: false })
+          .then(() => {
+            dispatch(makeFeature(story, history));
+          });
+      }
+    });
+  };
+};
+
+const makeFeature = (story, history) => {
+  return (dispatch) => {
+    history.push('/admin/success');
+    firebase.database().ref(`/shortStories/${story.uid}`)
+      .update({ isFeature: true })
+      .then(() => {
+        dispatch({ type: MAKE_FEATURE });
       });
   };
 };
