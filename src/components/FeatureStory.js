@@ -26,7 +26,7 @@ class FeatureStory extends Component {
             <div className="FSAbackground">
               <div className="row">
                 <div className="col l8 m12">
-                  <img style={{ width: '100%' }} src={story.image} />
+                  <img className="FSA" style={{ width: '100%' }} src={story.image} />
                 </div>
                 <div className="col l4 m12">
                   <h3>{story.title}</h3>
