@@ -25,12 +25,12 @@ class IndexShortStories extends Component {
           <div className="col s12 m6 l4">
             <div className="card hoverable">
               <div className="card-image">
-                <img src={story.image} />
+                <img src={story.image} height="200" />
                 <span className="card-title">{story.title}</span>
               </div>
               <div className="card-content">
                 <span>
-                  {renderHTML(story.content.substring(0, 130))}...
+                  {renderHTML(story.content.substring(0, 110))}...
                 </span>
               </div>
               <div className="card-action">
