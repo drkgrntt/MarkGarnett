@@ -9,6 +9,7 @@ class ShowShortStory extends Component {
     window.scrollTo(0,0);
     this.props.shortStoriesFetch();
   }
+
   render() {
     const { story } = this.props;
 
@@ -22,8 +23,8 @@ class ShowShortStory extends Component {
 
     return (
       <div>
-        <Link style={{ margin: '10px' }} className="btn indigo lighten-1" to="/stories">
-          Back
+        <Link style={{ margin: '10px 0' }} className="btn indigo lighten-1" to="/">
+          Home
         </Link>
         <div className="chapter1background">
           <h3>{story.title}</h3>
@@ -40,12 +41,14 @@ class ShowShortStory extends Component {
             </i></blockquote>
             {renderHTML(story.content)}
             <Link to="/stories" className="btn indigo lighten-1" style={{ float: 'right' }}>
-              Back
+              Stories
+            </Link>
+            <Link to="/" className="btn indigo lighten-1" style={{ float: 'left' }}>
+              Home
             </Link>
           </div>
         </div>
       </div>
-
     );
   }
 }

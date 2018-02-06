@@ -37,9 +37,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BrowserRouter 
-          onUpdate={() => window.scrollTo(0, 0)} 
-        >
+        <BrowserRouter>
           <div className="container">
             <Route exact path="/" component={Landing} />
             <Route exact path="/chapter1" component={Chapter1} />

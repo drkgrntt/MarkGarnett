@@ -13,7 +13,7 @@ class AboutTheAuthor extends Component {
           <h2 className="header">About Mark</h2>
           <div className="card horizontal ATAbackground">
             <div className="card-image">
-              <img src="https://i.imgur.com/UuQHIvn.jpg?1" />
+              <img style={{ width: '300px' }} src="https://i.imgur.com/UuQHIvn.jpg?1" />
             </div>
             <div className="card-stacked">
               <div className="card-content">
