@@ -24,6 +24,7 @@ class FeatureStory extends Component {
         return (
           <div key={story.uid}>
             <div className="FSAbackground">
+              <h4 style={{ textDecoration: 'underline' }}><i>Feature Story</i></h4>
               <div className="row">
                 <div className="col l8 m12">
                   <img className="FSA" style={{ width: '100%' }} src={story.image} />
