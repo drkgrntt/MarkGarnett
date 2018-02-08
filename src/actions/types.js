@@ -20,3 +20,7 @@ export const CREATE_CHAPTER = 'create_chapter';
 export const UPDATE_CHAPTER = 'update_chapter';
 export const DELETE_CHAPTER = 'delete_chapter';
 export const CHAPTERS_FETCH_SUCCESS = 'chapters_fetch_success';
+
+export const MESSAGES_FETCH_SUCCESS = 'messages_fetch_success';
+export const CREATE_MESSAGE = 'create_message';
+export const DELETE_MESSAGE = 'delete_message';

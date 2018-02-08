@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import FromScatteredAshes from './FromScatteredAshes';
 import FeatureStory from './FeatureStory';
+import Contact from './Contact';
 
 class Landing extends Component {
   componentDidMount() {
@@ -15,6 +16,8 @@ class Landing extends Component {
         <FromScatteredAshes />
         <hr /><hr />
         <FeatureStory />
+        <hr /><hr />
+        <Contact />
       </div>
     );
   }

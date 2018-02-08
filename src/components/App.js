@@ -10,6 +10,7 @@ import Stories from './Stories';
 import ShowShortStory from './ShowShortStory';
 import ShowChapter from './ShowChapter';
 import AboutTheAuthor from './AboutTheAuthor';
+import MessageSent from './MessageSent';
 
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
@@ -45,6 +46,7 @@ class App extends Component {
             <Route exact path="/stories/short/:uid" component={ShowShortStory} />
             <Route exact path="/stories/long/:uid/chapters/:chapter_uid" component={ShowChapter} />
             <Route exact path="/about" component={AboutTheAuthor} />
+            <Route exact path="/sent" component={MessageSent} />
             {/* ADMIN ROUTES */}
             <Route exact path="/admin/login" component={LoginForm} />
             <Route exact path="/admin/register" component={RegisterForm} />

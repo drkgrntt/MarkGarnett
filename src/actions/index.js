@@ -22,7 +22,11 @@ import {
 
   UPDATE_CHAPTER,
   DELETE_CHAPTER,
-  CHAPTERS_FETCH_SUCCESS
+  CHAPTERS_FETCH_SUCCESS,
+
+  CREATE_MESSAGE,
+  MESSAGES_FETCH_SUCCESS,
+  DELETE_MESSAGE
 } from './types';
 
 // AUTH ACTIONS
@@ -235,6 +239,37 @@ export const chaptersFetch = (uid) => {
     firebase.database().ref(`/longStories/${uid}/chapters`)
       .on('value', (snapshot) => {
         dispatch({ type: CHAPTERS_FETCH_SUCCESS, payload: snapshot.val() });
+      });
+  };
+};
+
+export const createMessage = ({ name, email, content }, history) => {
+  return (dispatch) => {
+    history.push('/sent');
+    firebase.database().ref('/messages')
+      .push({ name, email, content })
+      .then(() => {
+        dispatch({ type: CREATE_MESSAGE });
+      });
+  };
+};
+
+export const messagesFetch = () => {
+  return (dispatch) => {
+    firebase.database().ref('messages')
+      .on('value', (snapshot) => {
+        dispatch({ type: MESSAGES_FETCH_SUCCESS, payload: snapshot.val() });
+      });
+  };
+};
+
+export const deleteMessage = (uid, history) => {
+  return (dispatch) => {
+    history.push('/admin/success');
+    firebase.database().ref(`/messages/${uid}`)
+      .remove()
+      .then(() => {
+        dispatch({ type: DELETE_MESSAGE });
       });
   };
 };

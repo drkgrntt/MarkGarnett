@@ -4,11 +4,13 @@ import authReducer from './authReducer';
 import shortStoryReducer from './shortStoryReducer';
 import longStoryReducer from './longStoryReducer';
 import chapterReducer from './chapterReducer';
+import messageReducer from './messageReducer';
 
 export default combineReducers({
   form: formReducer,
   auth: authReducer,
   shortStories: shortStoryReducer,
   longStories: longStoryReducer,
-  chapters: chapterReducer
+  chapters: chapterReducer,
+  messages: messageReducer
 });

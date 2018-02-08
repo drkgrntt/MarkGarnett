@@ -6,6 +6,7 @@
     "firebase": "^4.8.1",
     "lodash": "^4.17.4",
     "materialize-css": "^0.100.2",
+    "nodemailer": "^4.4.2",
     "react": "^16.2.0",
     "react-ckeditor-component": "^1.0.7",
     "react-dom": "^16.2.0",
