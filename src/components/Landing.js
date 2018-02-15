@@ -3,6 +3,7 @@ import Header from './Header';
 import FromScatteredAshes from './FromScatteredAshes';
 import FeatureStory from './FeatureStory';
 import Contact from './Contact';
+import HoneyBadger from './HoneyBadger';
 
 class Landing extends Component {
   componentDidMount() {
@@ -18,6 +19,8 @@ class Landing extends Component {
         <FeatureStory />
         <hr /><hr />
         <Contact />
+        <hr /><hr />
+        <HoneyBadger />
       </div>
     );
   }
