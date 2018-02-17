@@ -131,3 +131,11 @@ input::placeholder {
   height: auto;
   width: auto;
 }
+
+.derek {
+  height: 80px;
+  position: fixed;
+  margin: 0 auto;
+  bottom: 0%;
+  width: 100%;
+}
