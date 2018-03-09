@@ -27,7 +27,7 @@ class FromScatteredAshes extends Component {
             <div className="col m6 s12">
               <img 
                 className="FSA" 
-                src="https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/22448397_10210183927056830_4137496625934223388_n.jpg?oh=110d123aa4cac0113936e4b3a23bcc64&oe=5ABA1BDB" 
+                src="https://i.imgur.com/cxCyKxV.jpg" 
               />
             </div>
           </div>

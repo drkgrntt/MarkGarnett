@@ -52,7 +52,7 @@ class Contact extends Component {
           />
           <button
             type="submit"
-            className="btn blue"
+            className="btn indigo lighten-1"
             style={{ margin: '10px 0'}}
           >
             Submit
