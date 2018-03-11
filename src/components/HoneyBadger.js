@@ -11,6 +11,7 @@ class HoneyBadger extends Component {
             <p>"For <em>literally</em> all of your writing endeavors (books, essays, short stories, papers for school, resumes, letters to the President, anonymous love letters, etc.), I cannot recommend Honeybadger Editing services highly enough. Professional work at a personal level with affordable prices."</p>
             <p>-Mark Garnett</p>
             <hr />
+            <p>Website - <a href="https://editingbadger.com">editingbadger.com</a></p>
             <p>Facebook - <a href="https://www.facebook.com/editingbadger">editingbadger</a></p>
             <p>Twitter - <a href="https://twitter.com/editingbadger">@editingbadger</a></p>
             <p>Gmail - <a href="mailto:editingbadger@gmail.com">editingbadger@gmail.com</a></p>
