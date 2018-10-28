@@ -18,7 +18,7 @@ class HoneyBadger extends Component {
           </div>
           <div className="col l5 m12">
             <img 
-              src="https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/17757276_1475146552519573_7674930973478994129_n.png?oh=91ebe7ccfa5343e13066f4073b0f0b1a&oe=5B1F5FDE" 
+              src="https://i.imgur.com/Kh6hxoD.png" 
               style={{ width: '100%' }}
               className="FSA"
             />

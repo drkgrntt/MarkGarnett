@@ -1,0 +1,213 @@
+[debug] [2018-10-27T22:47:42.885Z] ----------------------------------------------------------------------
+[debug] [2018-10-27T22:47:42.887Z] Command:       /usr/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-10-27T22:47:42.887Z] CLI Version:   3.19.1
+[debug] [2018-10-27T22:47:42.887Z] Platform:      linux
+[debug] [2018-10-27T22:47:42.887Z] Node Version:  v9.11.2
+[debug] [2018-10-27T22:47:42.887Z] Time:          Sat Oct 27 2018 17:47:42 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:42.887Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-27T22:47:42.892Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-27T22:47:42.893Z] > authorizing via signed-in user
+[debug] [2018-10-27T22:47:42.894Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/markgarnettauthor  
+  
+ Sat Oct 27 2018 17:47:42 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:43.301Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-27T22:47:43.302Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/markgarnettauthor/tokens  
+  
+ Sat Oct 27 2018 17:47:43 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:43.641Z] <<< HTTP RESPONSE 200
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions.
+ Please upgrade using npm install --save firebase-functions@latest in your functions directory.
+[info] 
+[info] === Deploying to 'markgarnettauthor'...
+[info] 
+[info] i  deploying database, functions, hosting
+[info] Running command: npm --prefix $RESOURCE_DIR run lint
+[info] ✔  functions: Finished running predeploy script.
+[info] i  database: checking rules syntax...
+[debug] [2018-10-27T22:47:45.634Z] >>> HTTP REQUEST PUT https://markgarnettauthor.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": true,
+    ".write": "auth != null"
+  }
+}
+ 
+ Sat Oct 27 2018 17:47:45 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:45.940Z] <<< HTTP RESPONSE 200
+[info] ✔  database: rules syntax for database markgarnettauthor is valid
+[debug] [2018-10-27T22:47:45.944Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.8.1",
+    "firebase-functions": "^0.8.1",
+    "nodemailer": "^4.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-10-27T22:47:45.946Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/markgarnettauthor?view=CONSUMER_VIEW  
+  
+ Sat Oct 27 2018 17:47:45 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:45.947Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/markgarnettauthor?view=CONSUMER_VIEW  
+  
+ Sat Oct 27 2018 17:47:45 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:47.265Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-27T22:47:47.348Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-10-27T22:47:47.350Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/markgarnettauthor  
+  
+ Sat Oct 27 2018 17:47:47 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:47.733Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-27T22:47:47.734Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/978349701233:getServerAppConfig  
+  
+ Sat Oct 27 2018 17:47:47 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:48.132Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-10-27T22:47:48.142Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/markgarnettauthor/configs  
+  
+ Sat Oct 27 2018 17:47:48 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:48.532Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-27T22:47:48.535Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/markgarnettauthor/configs/admincode/variables  
+  
+ Sat Oct 27 2018 17:47:48 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:48.535Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/markgarnettauthor/configs/gmail/variables  
+  
+ Sat Oct 27 2018 17:47:48 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:48.870Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-27T22:47:48.872Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/markgarnettauthor/configs/gmail/variables/email  
+  
+ Sat Oct 27 2018 17:47:48 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:48.872Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/markgarnettauthor/configs/gmail/variables/password  
+  
+ Sat Oct 27 2018 17:47:48 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:49.182Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-27T22:47:49.260Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-27T22:47:49.377Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-27T22:47:49.377Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/markgarnettauthor/configs/admincode/variables/key  
+  
+ Sat Oct 27 2018 17:47:49 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:50.434Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (39.87 KB) for uploading
+[debug] [2018-10-27T22:47:51.859Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/markgarnettauthor/locations/us-central1/functions:generateUploadUrl  
+  
+ Sat Oct 27 2018 17:47:51 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:52.638Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-27T22:47:52.639Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-8a751233-4dac-4ba9-b04b-2c55f5575622/7ffcf6e7-36f0-487a-bf0d-c8e37b1edd1e.zip?GoogleAccessId=service-978349701233@gcf-admin-robot.iam.gserviceaccount.com&Expires=1540682272&Signature=YP6zfjH8SI1sBpsxUcAaFZK5bkq%2FJtOHOa5tGBRyuZ6IihIkpQ02m2u4Z8%2BdtEeYW1MPeZ3pJscCxRKfj0sn0KzLJNHAukfvCjTLGPJTRYGBfz5vGtfl6SyqByaRVduC9POMzn5i6VdBcnJ%2FAH53TjX1139ikRgM8qObPOMaRNh%2Fs0yuhuiVuoG%2FTDrKLyt1KPx5nP%2FINqBs%2F5loOl2tygdjsTh3Opi53q5zDk8H5uocXYBGA81zMele9Ybquwp0RBqVdCNsLxpCo9RnR9Bd2%2B7qaekhGRUoL75bh4QycqDjfia7yvJ1sC22ZFkoa425KG5qfzBKNLXupf9lS4RIzg%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 40829,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/tmp/firebase-functions-8749Ap76fQ1dS5yh.zip',
+  fd: 15,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: Infinity,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 40829,
+  closed: false } 
+ Sat Oct 27 2018 17:47:52 GMT-0500 (CDT)
+[debug] [2018-10-27T22:47:53.404Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[info] i  hosting: preparing build directory for upload...
+[debug] [2018-10-27T22:47:53.793Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/markgarnettauthor/uploads/-LPrhZSOFHVRvQx2cgGP?fileCount=19&message=  
+  
+ Sat Oct 27 2018 17:47:53 GMT-0500 (CDT)
+[debug] [2018-10-27T22:48:06.634Z] <<< HTTP RESPONSE 410
+[debug] [2018-10-27T22:48:06.635Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-10-27T22:48:06.638Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:47:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:180:13)
+    at Request.emit (domain.js:422:20)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1157:10)
+    at Request.emit (events.js:180:13)
+    at Request.emit (domain.js:422:20)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1079:12)
+    at Object.onceWrapper (events.js:272:13)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2018-10-27T23:27:44.688Z] ----------------------------------------------------------------------
+[debug] [2018-10-27T23:27:44.690Z] Command:       /usr/bin/node /usr/local/bin/firebase deploy --only hosting
+[debug] [2018-10-27T23:27:44.690Z] CLI Version:   3.19.1
+[debug] [2018-10-27T23:27:44.690Z] Platform:      linux
+[debug] [2018-10-27T23:27:44.690Z] Node Version:  v9.11.2
+[debug] [2018-10-27T23:27:44.690Z] Time:          Sat Oct 27 2018 18:27:44 GMT-0500 (CDT)
+[debug] [2018-10-27T23:27:44.690Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-27T23:27:44.696Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-27T23:27:44.696Z] > authorizing via signed-in user
+[debug] [2018-10-27T23:27:44.697Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/markgarnettauthor  
+  
+ Sat Oct 27 2018 18:27:44 GMT-0500 (CDT)
+[debug] [2018-10-27T23:27:45.547Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-27T23:27:45.548Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/markgarnettauthor/tokens  
+  
+ Sat Oct 27 2018 18:27:45 GMT-0500 (CDT)
+[debug] [2018-10-27T23:27:45.876Z] <<< HTTP RESPONSE 200
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions.
+ Please upgrade using npm install --save firebase-functions@latest in your functions directory.
+[info] 
+[info] === Deploying to 'markgarnettauthor'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing build directory for upload...
+[debug] [2018-10-27T23:27:47.362Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/markgarnettauthor/uploads/-LPrqi3NsEouE7CVYuiw?fileCount=19&message=  
+  
+ Sat Oct 27 2018 18:27:47 GMT-0500 (CDT)
+[debug] [2018-10-27T23:27:59.938Z] <<< HTTP RESPONSE 410
+[debug] [2018-10-27T23:27:59.938Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-10-27T23:27:59.941Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:47:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:180:13)
+    at Request.emit (domain.js:422:20)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1157:10)
+    at Request.emit (events.js:180:13)
+    at Request.emit (domain.js:422:20)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1079:12)
+    at Object.onceWrapper (events.js:272:13)
+[error] 
+[error] Error: An unexpected error has occurred.

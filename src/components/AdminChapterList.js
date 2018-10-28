@@ -28,12 +28,12 @@ class AdminChapterList extends Component {
       );
     }
 
-    return _.map(this.props.chapters, (chapter) => {
+    return _.map(this.props.chapters, (chapter, i) => {
       return (
         <li key={chapter.uid}>
           <div className="row">
             <hr />
-            <span style={{ fontSize: '17px', fontWeight: 'bold' }}>{chapter.chapterTitle}</span>
+            <span style={{ fontSize: '17px', fontWeight: 'bold' }}>{i+1}. {chapter.chapterTitle}</span>
             <a 
               onClick={this.onDeleteClick.bind(this, chapter)}
               className="btn right red"

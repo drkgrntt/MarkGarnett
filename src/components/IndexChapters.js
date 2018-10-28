@@ -20,7 +20,7 @@ class IndexChapters extends Component {
       );
     }
 
-    return _.map(this.props.chapters, (chapter) => {
+    return _.map(this.props.chapters, (chapter, i) => {
       return (
         <li key={chapter.uid}>
           <div className="row">
@@ -28,7 +28,7 @@ class IndexChapters extends Component {
               className="chapter"
               to={`/stories/long/${this.props.uid}/chapters/${chapter.uid}`}
             >
-              <i>{chapter.chapterTitle}</i>
+              <span>{i+1}. </span><em>{chapter.chapterTitle}</em>
             </Link>
           </div>
         </li>

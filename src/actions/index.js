@@ -215,7 +215,7 @@ export const createChapter = (uid, chapterTitle, chapterImage, chapterContent, h
 export const updateChapter = (uid, chapter_uid, { chapterTitle, chapterImage, chapterContent }, history) => {
   return (dispatch) => {
     history.push('/admin/success');
-    firebase.database().ref(`/longStories/${uid}/chapter/${chapter_uid}`)
+    firebase.database().ref(`/longStories/${uid}/chapters/${chapter_uid}`)
       .update({ chapterTitle, chapterImage, chapterContent })
       .then(() => {
         dispatch({ type: UPDATE_CHAPTER });

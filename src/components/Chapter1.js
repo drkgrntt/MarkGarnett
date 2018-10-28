@@ -17,7 +17,7 @@ class Chapter1 extends Component {
             className="chapter1banner"
             width="100%"
             height="auto"
-            src="https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/22221598_10210103052355013_7935913699928361797_n.jpg?oh=fcfd6efe13778a533f23e9832560bad5&oe=5AB2BB04" 
+            src="https://i.imgur.com/FU1BqjZ.jpg"
           />
           <div className="chapter1">
             <p>
